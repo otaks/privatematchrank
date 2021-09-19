@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='refresh' content='30'> 
+    <title>プラベランキング！</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div>※30秒毎に自動更新</div>
+    <div>※サーバ負荷の都合上最大3分の結果反映遅延あります( ^^) _旦~~</div>
+    <div class="red">{{end_time}}終了の「{{stage}}」回を反映しました</div>
+    <br>
+    勝利数ランキング！
+    <table>
+        <tr>
+            <th>順位</th>
+            <th>名前</th>
+            <th>ポイント</th>
+        </tr>
+        <tr class="top3">
+            <td>1</td>
+            <td>{{win_1_name}}</td>
+            <td>{{win_1_pt}}</td>
+        </tr>
+        <tr class="top3">
+            <td>2</td>
+            <td>{{win_2_name}}</td>
+            <td>{{win_2_pt}}</td>
+        </tr>
+        <tr class="top3">
+            <td>3</td>
+            <td>{{win_3_name}}</td>
+            <td>{{win_3_pt}}</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>{{win_4_name}}</td>
+            <td>{{win_4_pt}}</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>{{win_5_name}}</td>
+            <td>{{win_5_pt}}</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>{{win_6_name}}</td>
+            <td>{{win_6_pt}}</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>{{win_7_name}}</td>
+            <td>{{win_7_pt}}</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>{{win_8_name}}</td>
+            <td>{{win_8_pt}}</td>
+        </tr>
+    </table>
+    <hr>
+    塗りランキング！
+    <table>
+        <tr>
+            <th>順位</th>
+            <th>名前</th>
+            <th>ポイント</th>
+        </tr>
+        <tr class="top3">
+            <td>1</td>
+            <td>{{nuri_1_name}}</td>
+            <td>{{nuri_1_pt}}(+{{nuri_1_pt_before}})</td>
+        </tr>
+        <tr class="top3">
+            <td>2</td>
+            <td>{{nuri_2_name}}</td>
+            <td>{{nuri_2_pt}}(+{{nuri_2_pt_before}})</td>
+        </tr>
+        <tr class="top3">
+            <td>3</td>
+            <td>{{nuri_3_name}}</td>
+            <td>{{nuri_3_pt}}(+{{nuri_3_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>{{nuri_4_name}}</td>
+            <td>{{nuri_4_pt}}(+{{nuri_4_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>{{nuri_5_name}}</td>
+            <td>{{nuri_5_pt}}(+{{nuri_5_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>{{nuri_6_name}}</td>
+            <td>{{nuri_6_pt}}(+{{nuri_6_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>{{nuri_7_name}}</td>
+            <td>{{nuri_7_pt}}(+{{nuri_7_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>{{nuri_8_name}}</td>
+            <td>{{nuri_8_pt}}(+{{nuri_8_pt_before}})</td>
+        </tr>
+    </table>
+    <hr>
+    キルランキング！
+    <table>
+        <tr>
+            <th>順位</th>
+            <th>名前</th>
+            <th>ポイント</th>
+        </tr>
+        <tr class="top3">
+            <td>1</td>
+            <td>{{kill_1_name}}</td>
+            <td>{{kill_1_pt}}(+{{kill_1_pt_before}})</td>
+        </tr>
+        <tr class="top3">
+            <td>2</td>
+            <td>{{kill_2_name}}</td>
+            <td>{{kill_2_pt}}(+{{kill_2_pt_before}})</td>
+        </tr>
+        <tr class="top3">
+            <td>3</td>
+            <td>{{kill_3_name}}</td>
+            <td>{{kill_3_pt}}(+{{kill_3_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>{{kill_4_name}}</td>
+            <td>{{kill_4_pt}}(+{{kill_4_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>{{kill_5_name}}</td>
+            <td>{{kill_5_pt}}(+{{kill_5_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>{{kill_6_name}}</td>
+            <td>{{kill_6_pt}}(+{{kill_6_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>{{kill_7_name}}</td>
+            <td>{{kill_7_pt}}(+{{kill_7_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>{{kill_8_name}}</td>
+            <td>{{kill_8_pt}}(+{{kill_8_pt_before}})</td>
+        </tr>
+    </table>
+    <hr>
+    アシストランキング！
+    <table>
+        <tr>
+            <th>順位</th>
+            <th>名前</th>
+            <th>ポイント</th>
+        </tr>
+        <tr class="top3">
+            <td>1</td>
+            <td>{{assist_1_name}}</td>
+            <td>{{assist_1_pt}}(+{{assist_1_pt_before}})</td>
+        </tr>
+        <tr class="top3">
+            <td>2</td>
+            <td>{{assist_2_name}}</td>
+            <td>{{assist_2_pt}}(+{{assist_2_pt_before}})</td>
+        </tr>
+        <tr class="top3">
+            <td>3</td>
+            <td>{{assist_3_name}}</td>
+            <td>{{assist_3_pt}}(+{{assist_3_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>{{assist_4_name}}</td>
+            <td>{{assist_4_pt}}(+{{assist_4_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>{{assist_5_name}}</td>
+            <td>{{assist_5_pt}}(+{{assist_5_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>{{assist_6_name}}</td>
+            <td>{{assist_6_pt}}(+{{assist_6_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>{{assist_7_name}}</td>
+            <td>{{assist_7_pt}}(+{{assist_7_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>{{assist_8_name}}</td>
+            <td>{{assist_8_pt}}(+{{assist_8_pt_before}})</td>
+        </tr>
+    </table>
+   <hr>
+    デスランキング！
+    <table>
+        <tr>
+            <th>順位</th>
+            <th>名前</th>
+            <th>ポイント</th>
+        </tr>
+        <tr class="top3">
+            <td>1</td>
+            <td>{{death_1_name}}</td>
+            <td>{{death_1_pt}}(+{{death_1_pt_before}})</td>
+        </tr>
+        <tr class="top3">
+            <td>2</td>
+            <td>{{death_2_name}}</td>
+            <td>{{death_2_pt}}(+{{death_2_pt_before}})</td>
+        </tr>
+        <tr class="top3">
+            <td>3</td>
+            <td>{{death_3_name}}</td>
+            <td>{{death_3_pt}}(+{{death_3_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>{{death_4_name}}</td>
+            <td>{{death_4_pt}}(+{{death_4_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>{{death_5_name}}</td>
+            <td>{{death_5_pt}}(+{{death_5_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>{{death_6_name}}</td>
+            <td>{{death_6_pt}}(+{{death_6_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>{{death_7_name}}</td>
+            <td>{{death_7_pt}}(+{{death_7_pt_before}})</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>{{death_8_name}}</td>
+            <td>{{death_8_pt}}(+{{death_8_pt_before}})</td>
+        </tr>
+    </table>
+    <hr>
+    総合ランキング！<br>
+    ※1位…10pt,2位…9pt,...8位…3ptとして各ランキングを集計(デスはptが逆順)
+    <table>
+        <tr>
+            <th>順位</th>
+            <th>名前</th>
+            <th>ポイント</th>
+        </tr>
+        <tr class="top3">
+            <td>1</td>
+            <td>{{total_1_name}}</td>
+            <td>{{total_1_pt}}</td>
+        </tr>
+        <tr class="top3">
+            <td>2</td>
+            <td>{{total_2_name}}</td>
+            <td>{{total_2_pt}}</td>
+        </tr>
+        <tr class="top3">
+            <td>3</td>
+            <td>{{total_3_name}}</td>
+            <td>{{total_3_pt}}</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>{{total_4_name}}</td>
+            <td>{{total_4_pt}}</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>{{total_5_name}}</td>
+            <td>{{total_5_pt}}</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>{{total_6_name}}</td>
+            <td>{{total_6_pt}}</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>{{total_7_name}}</td>
+            <td>{{total_7_pt}}</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>{{total_8_name}}</td>
+            <td>{{total_8_pt}}</td>
+        </tr>
+    </table>
+
+</body>
+</html>
